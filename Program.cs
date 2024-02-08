@@ -15,10 +15,10 @@ namespace isci.monitor
         static void Main(string[] args)
         {
             //Erstellung des Zugriffs auf die dateibasierte Datenstruktur unter Nutzung der Parametrierung.
-            var structure = new Datenstruktur("/media/ramdisk", "monitor", "Demonstrator");
+            var structure = new Datenstruktur("/media/ramdisk", "monitor", "anwendung");
 
             //Hinzufügen aller als Dateien gespeicherte Datenmodelle im Standardordner.
-            structure.DatenmodelleEinhängenAusOrdner("/OrdnerDatenmodelle");
+            structure.DatenmodelleEinhängenAusOrdner("/home/dbb/anwendungen/ANWENDUNG/Datenmodelle");
             //Logischer Start der Datenstruktur.
             structure.Start();
             
