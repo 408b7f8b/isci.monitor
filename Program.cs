@@ -31,6 +31,7 @@ namespace isci.monitor
             foreach (var aenderung in aenderungen)
             {
                 zeitstempel[aenderung] = zeitstempel_tmp;
+                structure[aenderung].aenderungExtern = false;
             }
         }
 
