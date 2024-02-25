@@ -12,13 +12,32 @@ namespace isci.monitor
 {
     class Program
     {
+        public static void ClearVisibleRegion()
+        {
+            int cursorTop = Console.CursorTop;
+            int cursorLeft = Console.CursorLeft;
+            for(int y = Console.WindowTop; y < Console.WindowTop + Console.WindowHeight; y++) {
+                Console.SetCursorPosition(Console.WindowLeft, y);
+                Console.Write(new string(' ', Console.WindowWidth));
+            }
+
+            Console.SetCursorPosition(Console.WindowLeft, Console.WindowTop);
+        }
+
         static void DarstellungAktualisieren(object state)
         {
             System.Console.Clear();
+            //ClearVisibleRegion();
+            //Console.SetCursorPosition(Console.WindowLeft, Console.WindowTop);
 
             foreach (var eintrag in structure.dateneinträge)
             {
-                System.Console.WriteLine(eintrag.Key + " [" + zeitstempel[eintrag.Value.Identifikation] + "]: " + eintrag.Value.WertSerialisieren());
+                string ausgabe = eintrag.Key + " [" + zeitstempel[eintrag.Value.Identifikation] + "]: " + eintrag.Value.WertSerialisieren();
+                /* for (int i = 0; i < Console.WindowWidth-ausgabe.Length; ++i)
+                {
+                    ausgabe += " ";
+                } */
+                Console.WriteLine(ausgabe);                
             }
         }
 
@@ -60,7 +79,10 @@ namespace isci.monitor
                 System.Environment.Exit(0);
             }
 
+            isci.Logger.aktiv = false;
+
             start:
+            
             //Erstellung des Zugriffs auf die dateibasierte Datenstruktur unter Nutzung der Parametrierung.
             structure = new Datenstruktur(args[1], "monitor", args[0]);
 
