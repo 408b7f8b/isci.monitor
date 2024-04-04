@@ -79,8 +79,6 @@ namespace isci.monitor
                 System.Environment.Exit(0);
             }
 
-            isci.Logger.aktiv = false;
-
             start:
             
             //Erstellung des Zugriffs auf die dateibasierte Datenstruktur unter Nutzung der Parametrierung.
