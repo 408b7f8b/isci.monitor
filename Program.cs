@@ -68,7 +68,7 @@ namespace isci.monitor
         static void Main(string[] args)
         {
             if (args.Length < 5) {
-                Console.WriteLine("Parameter für Start:");
+                Console.WriteLine("Parameter für Start monitor v0.2:");
                 Console.WriteLine("1.: Name des Automatisierungssystems");
                 Console.WriteLine("2.: Lokaler Ordner der Datenstrukturen");
                 Console.WriteLine("3.: Lokaler Ordner der Datenmodelle");
