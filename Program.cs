@@ -120,6 +120,9 @@ namespace isci.monitor
                 System.Threading.Thread.Sleep(10000);
             }
 
+            functionXTimer.Dispose();
+            functionYTimer.Dispose();
+
             neustarten = false;
             goto start;
         }
